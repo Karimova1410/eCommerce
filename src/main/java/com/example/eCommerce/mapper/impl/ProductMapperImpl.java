@@ -1,9 +1,12 @@
-package com.example.eCommerce.mapper.Impl;
+package com.example.eCommerce.mapper.impl;
 
-import com.example.eCommerce.dto.Product.ProductResponse;
+import com.example.eCommerce.dto.product.ProductResponse;
 import com.example.eCommerce.entities.Product;
 import com.example.eCommerce.mapper.ProductMapper;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class ProductMapperImpl implements ProductMapper {
@@ -14,7 +17,16 @@ public class ProductMapperImpl implements ProductMapper {
         productResponse.setDescription(product.getDescription());
         productResponse.setPrice(product.getPrice());
         productResponse.setId(product.getId());
-        productResponse.setUnicode(product.getUnicode());
+        productResponse.setSKU(product.getSKU());
         return productResponse;
+    }
+
+    @Override
+    public List<ProductResponse> toDtos(List<Product> all) {
+        List<ProductResponse> products = new ArrayList<>();
+        for(Product product: all){
+            products.add(toDto(product));
+        }
+        return products;
     }
 }

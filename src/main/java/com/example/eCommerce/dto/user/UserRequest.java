@@ -1,11 +1,13 @@
-package com.example.eCommerce.dto.AuthLogin;
+package com.example.eCommerce.dto.user;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class AuthLoginRequest {
+
+public class UserRequest {
+
     private String email;
     private String password;
 }

@@ -1,12 +1,16 @@
-package com.example.eCommerce.dto.User;
+package com.example.eCommerce.entities;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
+@Entity
 @Setter
-
-public class UserRegisterResponse {
+@Getter
+@Table(name = "payment_table")
+public class Payment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
@@ -19,5 +23,5 @@ public class UserRegisterResponse {
     private Integer phone;
     private String email;
     private String additionalInfo;
-}
 
+}
